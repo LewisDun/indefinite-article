@@ -1,5 +1,5 @@
 {
-    "name":"thaumatic/indefinite-article",
+    "name":"lewis-dun/indefinite-article",
     "description":"Grammatical utility for prepending an indefinite article to a word",
     "keywords":[
         "php",

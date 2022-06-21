@@ -4,7 +4,10 @@ namespace Thaumatic;
 
 class IndefiniteArticle
 {
-
+    /**
+     * @param   string  $text
+     * @return  string
+     */
     public static function a($text)
     {
         $matches = [];
@@ -20,6 +23,10 @@ class IndefiniteArticle
         return sprintf('%s%s %s%s', $pre, $form, $word, $post);
     }
 
+    /**
+     * @param   string  $word
+     * @return  string
+     */
     private static function indefiniteArticleForm($word)
     {
         // Handle numbers in digit form.  These need to be checked early due
@@ -36,7 +43,7 @@ class IndefiniteArticle
         if (preg_match('/^11(?:\d+)?/', $word) || preg_match('/^18(?:\d+)?/', $word)) {
             // First strip off any decimals and remove spaces or commas.
             // Then if the number of digits modulo 3 is 1 we have a match.
-            if (strlen(preg_replace(['/\s/', '/,/', '/\.(\d+)?/'], '', $word)) % 3 == 1) {
+            if (strlen((string)preg_replace(['/\s/', '/,/', '/\.(\d+)?/'], '', $word)) % 3 == 1) {
                 return 'an';
             }
         }
